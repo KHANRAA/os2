@@ -13,9 +13,9 @@ int main()
 {
     int msgId;
     char buff[100];
-    msgId=msgget((key_t)13,0666);
+    msgId=msgget((key_t)10,0666);
     printf("Message read from the queue is: ");
-    msgrcv(msgId,&buff,sizeof(buff),0,0);
+    msgrcv(msgId,&buff,sizeof(buff),0,IPC_NOWAIT);
     printf("%s",buff);
     exit(EXIT_SUCCESS);
 }
